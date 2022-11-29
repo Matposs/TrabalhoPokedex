@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Aluno/StudioProjects/PokeDex/app/src/main/res/layout/activity_main.xml" value="0.40160642570281124" />
-        <entry key="..\:/Users/Aluno/StudioProjects/PokeDex/app/src/main/res/layout/view_item_pokemon.xml" value="0.22" />
+        <entry key="..\:/Users/Aluno/StudioProjects/PokeDex/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/Aluno/StudioProjects/PokeDex/app/src/main/res/layout/activity_pokemon_details.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/Aluno/StudioProjects/PokeDex/app/src/main/res/layout/poke_item_view.xml" value="0.1082427536231884" />
       </map>
     </option>
   </component>
@@ -13,5 +14,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.14402173913043478" />
+      </ProjectState>
+    </option>
   </component>
 </project>

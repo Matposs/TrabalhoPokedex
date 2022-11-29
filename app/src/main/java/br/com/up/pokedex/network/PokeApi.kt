@@ -1,9 +1,8 @@
 package br.com.up.pokedex.network
 
-import android.util.Log
-import br.com.up.pokedex.models.PokeApiResponse
-import br.com.up.pokedex.models.Pokemon
-import org.json.JSONObject
+import br.com.up.pokedex.model.PokeResponse
+import br.com.up.pokedex.model.Pokemon
+import br.com.up.pokedex.model.PokemonDetail
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -13,44 +12,67 @@ import retrofit2.converter.gson.GsonConverterFactory
 class PokeApi {
 
     private var retrofit: Retrofit? = null
-    private var apiService: PokeApiService? = null
+    private var pokeService: PokeApiService? = null
 
-    init {
-        retrofit = Retrofit
-            .Builder()
+
+    init{
+
+        retrofit = Retrofit.Builder()
             .baseUrl("https://pokeapi.co/api/v2/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        apiService =
-            retrofit?.create(PokeApiService::class.java)
-    }
-
-    fun pokemons(listener:(pokemons:List<Pokemon>?) -> Unit){
-
-        apiService?.getPokemons()
-            ?.enqueue(object : Callback<PokeApiResponse>{
-                override fun onResponse(call: Call<PokeApiResponse>,
-                                        response: Response<PokeApiResponse>) {
-                    if(response.body() != null){
-                        val apiResponse = response.body()
-                        listener(apiResponse?.pokemons)
-                    }else{
-                        listener(null)
-                    }
-                }
-
-                override fun onFailure(call: Call<PokeApiResponse>,
-                                       t: Throwable) {
-                    listener(null)
-                }
-            })
+        pokeService = retrofit?.create(PokeApiService::class.java)
 
     }
 
+    fun getPokemons(listener:(List<Pokemon>?) -> Unit){
+        val call = pokeService?.getPokemons()
+        call?.enqueue(object : Callback<PokeResponse>{
+            override fun onResponse(
+                call: Call<PokeResponse>,
+                response: Response<PokeResponse>) {
+                listener(response.body()?.pokemons)
+            }
+            override fun onFailure(call: Call<PokeResponse>,
+                                   t: Throwable) {
+                listener(null)
+            }
+        })
+    }
 
+    fun getPokemonByName(name:String,
+                         listener: (PokemonDetail?) -> Unit){
 
+        val call = pokeService?.getPokemonByName(name)
 
+        call?.enqueue(object : Callback<PokemonDetail>{
+            override fun onResponse(call: Call<PokemonDetail>,
+                                    response: Response<PokemonDetail>) {
+                listener(response.body())
+            }
 
+            override fun onFailure(call: Call<PokemonDetail>,
+                                   t: Throwable) {
+                listener(null)
+            }
+        })
 
+    }
+
+    fun getPokemonById(id:String,
+                        listener: (Pokemon?) -> Unit){
+        val call = pokeService?.getPokemonById(id)
+
+        call?.enqueue(object : Callback<Pokemon>{
+            override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
+                listener(response.body())
+            }
+
+            override fun onFailure(call: Call<Pokemon>, t: Throwable) {
+                listener(null)
+            }
+
+        })
+    }
 }

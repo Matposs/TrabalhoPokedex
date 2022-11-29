@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detalhesPokemon"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#03A9F4"
+    tools:context=".PokemonDetailsActivity">
+
+    <ImageView
+        android:id="@+id/PokeImagem"
+        android:layout_width="162dp"
+        android:layout_height="157dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.034"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/nomePokemon"
+        android:layout_width="103dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:height="70px"
+        android:background="#32673AB7"
+        android:capitalize="characters"
+        android:fontFamily="sans-serif-medium"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toTopOf="@+id/PokeImagem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.363" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/habilidadesRecycler"
+        android:layout_width="166dp"
+        android:layout_height="39dp"
+        android:background="#CDFF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toEndOf="@+id/PokeImagem"
+        app:layout_constraintTop_toBottomOf="@+id/NomeHabilidades"
+        app:layout_constraintVertical_bias="0.027" />
+
+    <TextView
+        android:id="@+id/NomeHabilidades"
+        android:layout_width="96dp"
+        android:layout_height="16dp"
+        android:background="#CDFF0000"
+        android:text="Habilidades: "
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintStart_toEndOf="@+id/nomePokemon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/NomeTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="164dp"
+        android:background="#CDFFC107"
+        android:text="Tipos: "
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/habilidadesRecycler"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <TextView
+        android:id="@+id/NomeStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#CD4CAF50"
+        android:text="Status: "
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/typeRecycler"
+        app:layout_constraintVertical_bias="0.096" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/movesRecycler"
+        android:layout_width="357dp"
+        android:layout_height="114dp"
+        android:background="#CDE91E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NomeMoves"
+        app:layout_constraintVertical_bias="0.248" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/statusRecycler"
+        android:layout_width="357dp"
+        android:layout_height="114dp"
+        android:background="#CD4CAF50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NomeStatus"
+        app:layout_constraintVertical_bias="0.115" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/typeRecycler"
+        android:layout_width="166dp"
+        android:layout_height="39dp"
+        android:background="#CDFFC107"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toEndOf="@+id/PokeImagem"
+        app:layout_constraintTop_toBottomOf="@+id/NomeTypes"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <TextView
+        android:id="@+id/NomeMoves"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#CDE91E63"
+        android:text="Movimentos: "
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusRecycler"
+        app:layout_constraintVertical_bias="0.103" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
